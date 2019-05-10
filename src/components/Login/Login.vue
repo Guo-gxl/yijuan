@@ -1,6 +1,6 @@
 <template>
   <div>
-  <div> 
+  <div class="login-container"> 
       
       <header  id="header" class="mui-bar mui-bar-nav">
 			<a @click="goback1" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
@@ -99,6 +99,9 @@ import { Toast } from "mint-ui";
     }
 </script>
 <style lang="scss" scoped>
+.login-container{
+    margin-top: 40px;
+}
 .mui-input-group {
 				width: 100%;
             }

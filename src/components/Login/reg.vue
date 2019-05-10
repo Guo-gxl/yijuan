@@ -1,41 +1,45 @@
 <template>
- <div>
+ <div class="reg-container">
   <div> 
       <header id="header" class="mui-bar mui-bar-nav">
 			<a @click="gobacktologin" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">注册账号</h1>
 		</header>        
 </div>
-    <el-row type="flex" justify="center" class="mui-content">
-        <el-form ref="loginForm" :model="user" :rules="rules" class="mui-input-group">
-            <el-form-item class="mui-input-row">
+    <el-row type="flex" justify="center">
+        <el-form ::model="user" ref="loginForm" :model="user" :rules="rules" class="mui-input-group demo">
+            <el-form-item class="mui-input-row" prop="name">
                   <label>账号</label>
-                <input v-model="user.name" type="text" required="required" class="mui-input-clear mui-input" placeholder="请输入账号">
+                <el-input v-model="user.name" type="text" required="required" placeholder="请输入账号"></el-input>
             </el-form-item> 
-            <el-form-item class="mui-input-row">
-                <label>密码</label>
-                <input v-model="user.pass" type="password" required="required" class="mui-input-clear mui-input" placeholder="请输入密码">
+            
+            <el-form-item class="mui-input-row" prop="pass">
+                 <label>密码</label>
+                <el-input v-model="user.pass" type="password" required="required" placeholder="请输入密码"></el-input>
             </el-form-item>
-            <el-form-item class="mui-input-row">
+             <el-form-item class="mui-input-row" prop="checkPass">
+                 <label></label>
+                <el-input v-model="user.checkPass" type="password" required="required" placeholder="请再次输入密码"></el-input>
+            </el-form-item>
+            <el-form-item class="mui-input-row" prop="sex">
                 <label>性别</label>
                 <!-- <input v-model="user.sex" type="text" required="required" class="mui-input-clear mui-input" placeholder="请输入账号"> -->
-        <select v-model="user.sex" class="mui-input-clear mui-input" placeholder="未选择">
-            <option value="0" selected>请选择性别</option>
-            <option value="男">男</option>
-            <option value="女">女</option>
-        </select>
+        <el-select v-model="user.sex" class="mui-input-clear mui-input" placeholder="未选择">
+            <el-option value="男">男</el-option>
+            <el-option value="女">女</el-option>
+        </el-select>
             </el-form-item>
-            <el-form-item class="mui-input-row">
+            <el-form-item class="mui-input-row" prop="nickName">
                   <label>昵称</label>
-                <input v-model="user.nickName" type="text" required="required" class="mui-input-clear mui-input" placeholder="请输入昵称">
+                <el-input v-model="user.nickName" type="text" required="required" class="mui-input-clear mui-input" placeholder="请输入昵称"></el-input>
             </el-form-item>
-             <el-form-item class="mui-input-row">
+             <el-form-item class="mui-input-row" prop="phone">
                   <label>手机号</label>
-                <input v-model="user.phone" type="text" required="required" class="mui-input-clear mui-input" placeholder="请输入手机号">
+                <el-input v-model="user.phone" type="text" required="required" class="mui-input-clear mui-input" placeholder="请输入手机号"></el-input>
             </el-form-item>  
-             <el-form-item class="mui-input-row">
+             <el-form-item class="mui-input-row" prop="email">
                 <label>邮箱</label>
-                <input v-model="user.email" type="email" required="required" class="mui-input-clear mui-input" placeholder="请输入邮箱">
+                <el-input v-model="user.email" type="email" required="required" class="mui-input-clear mui-input" placeholder="请输入邮箱"></el-input>
             </el-form-item>
             <div class="mui-content-padded">
 				<button type="button" @click="register" class="mui-btn mui-btn-block mui-btn-primary">注册</button>
@@ -100,22 +104,63 @@ import { Toast } from "mint-ui";
 }
         },
         data () {
+
+            var validatePass = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请输入密码'));
+        } else {
+          if (this.user.checkPass !== '') {
+            this.$refs.loginForm.validateField('checkPass');
+          }
+          callback();
+        }
+      };
+      var validatePass2 = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请再次输入密码'));
+        } else if (value !== this.user.pass) {
+          callback(new Error('两次输入密码不一致!'));
+        } else {
+          callback();
+        }
+      };
             return {
-                user: {},
+                user: {
+                },
                 rules: {
                     name: [
-                        {required: true, message: '用户名不能为空', trigger: 'blur'}
-                    ],
+            { required: true, message: '请输入帐号', trigger: 'blur' },
+            { min: 8, max: 16, message: '长度在 8 到 16 个字符', trigger: 'blur' }
+          ],
                     pass: [
-                        {required: true, message: '密码不能为空', trigger: 'blur'}
-                    ]
+            { validator: validatePass, trigger: 'blur' }
+          ],
+          checkPass: [
+            { validator: validatePass2, trigger: 'blur' }
+          ],
+          nickName: [
+            { required: true, message: '请输入用户昵称', trigger: 'blur' },
+            { min: 3, max: 16, message: '长度在 3 到 16 个字符', trigger: 'blur' }
+          ],
+          phone: [
+            { required: true, message: '请输入手机号', trigger: 'blur' },
+            { min: 11, max: 11, message: '请正确输入手机号', trigger: 'blur' }
+          ],
+          email: [
+            { type: 'email', required: true, message: '请输入邮箱号', trigger: 'blur' }
+          ],
+           sex: [
+            { required: true, message: '请选择活动区域', trigger: 'change' }
+          ],
                 },
-                 user:{sex:'0'}//默认
             }
         }
     }
 </script>
 <style lang="scss" scoped>
+.reg-container{
+    margin-top: 40px;
+}
 .mui-input-group {
 				width: 100%;
             }
@@ -134,7 +179,9 @@ import { Toast } from "mint-ui";
 			.mui-input-group label {
 				width: 22%;
 			}
-			
+			.mui-input-row{
+                height: 60px;
+            }
 			.mui-input-row label~input,
 			.mui-input-row label~select,
 			.mui-input-row label~textarea {
@@ -205,5 +252,19 @@ import { Toast } from "mint-ui";
     .mui-btn-primary{
     color: #fff;
         background-color: salmon;
+}
+.el-form-item{
+    margin-bottom: 0px !important;
+}
+.demo /deep/ .el-form-item__error{
+    left: 25% !important; 
+       
+}
+label{
+    font-size: 16px;
+}
+.demo /deep/ .el-input__inner{
+    font-size: 16px;
+    height: 40px;
 }
 </style>

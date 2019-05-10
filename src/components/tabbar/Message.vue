@@ -1,5 +1,5 @@
 <template>
-
+<div class="mes-container">
       <div class="mui-content">
 			<div style="padding: 10px 10px;">
 				<div class="mui-segmented-control">
@@ -19,6 +19,7 @@
         	
 	</div>
 </div> 
+</div>
 
 
 </template>
@@ -83,6 +84,9 @@ created:function () {
 
 
 <style lang="scss" scoped>
+.mes-container{
+    margin-top: 60px;
+}
 .active{
     color: #fff !important;
     background-color:salmon;
@@ -104,7 +108,9 @@ a{
      border-left: 1px solid salmon;
 }
 
-
+.mui-content{
+    padding-bottom: 30px;
+}
 
 
 </style>

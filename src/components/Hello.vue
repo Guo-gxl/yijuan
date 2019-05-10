@@ -107,8 +107,8 @@ export default {
   height: 1rem;
 }
 .Hello-container{
-  height: 800px;
-  padding-top: 5px;
+  /* height: 800px; */
+  padding-top: 40px;
 	padding-bottom: 50px;
 	overflow-x:hidden;
 }

@@ -96,8 +96,7 @@ name: 'App',
 
 <style lang="scss">
 .app-container{
-    padding-top: 40px;
-	padding-bottom: 50px;
+    min-height:100vh;
 	overflow-x:hidden;
 }
 img{

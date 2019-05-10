@@ -121,8 +121,8 @@ export default {
     font-size: 19px;
     }
     .find-container{
-      height: 800px;
-        padding-top: 5px;
+      // height: 800px;
+        padding-top: 40px;
 	padding-bottom: 50px;
 	overflow-x:hidden;
     }

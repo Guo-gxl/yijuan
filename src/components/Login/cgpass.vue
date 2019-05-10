@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="self-container">
 	<div> 
       <header  id="header" class="mui-bar mui-bar-nav">
 			<a @click="goback1" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
@@ -82,7 +82,7 @@ import { Toast } from "mint-ui";
 </script>
 <style lang="scss" scoped>
 .self-container{
-    padding-top: 20px;
+    padding-top: 40px;
 }
 .butt{
     margin-top: 5px;

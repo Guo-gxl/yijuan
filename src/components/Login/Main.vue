@@ -1,4 +1,5 @@
 <template>
+<div class="main-container">
 <div class="mui-page-content">
 				<div>
 					<div class="mui-scroll">
@@ -43,6 +44,7 @@
 				<router-view></router-view>
 				<app-footer v-if="footer_show"></app-footer>
     </div>
+</div>
 </template>
 
 <script>
@@ -99,6 +101,9 @@ import Footer from'../../components/public/Footer.vue'
     }
 </script>
 <style lang="scss" scoped>
+.main-container{
+    margin-top: 40px;
+}
 .mui-page-content{
 	background-color: aqua;
 }

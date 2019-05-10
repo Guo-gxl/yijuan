@@ -1,5 +1,5 @@
 <template>
- <div>
+ <div class="self-container">
 	<div class="mui-card">
 				<div class="mui-card-content">
 					<div class="mui-card-content-inner">
@@ -145,6 +145,9 @@ export default {
 
 
 <style lang='scss' scoped>
+.self-container{
+    margin-bottom: 60px;
+}
 .mui-col-xs-5{
 	width: 50%;
 	float: right;

@@ -20,9 +20,9 @@ Vue.prototype.$ajax= axios
 
 
 //导入ElementUI，用.babelrc解决bug
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-Vue.use(ElementUI);
+import Element from 'element-ui'
+
+Vue.use(Element, { size: 'small' })
 
 //导入mui样式
 // import './lib/mui/css/mui.min.css'

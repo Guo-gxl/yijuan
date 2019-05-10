@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="self-container">
 <header id="header" class="mui-bar mui-bar-nav">
 			<a @click="goback1" class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">更改头像</h1>
@@ -107,6 +107,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.self-container{
+    padding-top: 40px;
+}
 .img{
     width: 94%;
   margin-left:3%;

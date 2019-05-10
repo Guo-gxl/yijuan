@@ -56,20 +56,6 @@
 								<a>更改密码</a>
 								</router-link>
 							</li>
-							<li class="mui-table-view-cell">
-								<a>手机号
-                                     <router-link to="/cgphone">
-                                     <span class="mui-pull-right">{{user.phone}}</span>
-                                     </router-link>
-                                      </a>
-							</li>
-							<li class="mui-table-view-cell">
-								<a>邮箱地址
-									 <router-link to="/cgemail">
-									<span class="mui-pull-right">{{user.email}}</span>
-									</router-link>
-									</a>
-							</li>
 						</ul>
 					</div>
 				</div>
@@ -116,7 +102,7 @@
 </script>
 <style lang="scss" scoped>
 .self-container{
-  min-height:680px; 
+  margin-top: 40px
 
 }
 .mui-scroll-wrapper{

@@ -1,4 +1,5 @@
 <template>
+<div class="don-container">
  <div class="img1">
    <div class="mui-content">
 			<div style="padding: 10px 10px;">
@@ -17,6 +18,7 @@
     	</div>
 			</div>     
   </div>
+</div>
 </template>
 
 
@@ -69,6 +71,9 @@ export default {
 
 
 <style lang='scss' scoped>
+.don-container{
+    margin-top: 40px;
+}
 .mui-col-xs-5{
 	width: 50%;
 	float: right;
